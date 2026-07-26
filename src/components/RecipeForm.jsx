@@ -39,7 +39,6 @@ function RecipeForm() {
         </p>
 
         <form
-          onSubmit={handleSubmit}
           className="space-y-4"
         >
 
@@ -54,8 +53,6 @@ function RecipeForm() {
               type="text"
               name="recipeName"
               placeholder="Recipe Name"
-              value={formData.recipeName}
-              onChange={handleChange}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
@@ -71,8 +68,6 @@ function RecipeForm() {
               type="text"
               name="chefName"
               placeholder="Chef Name"
-              value={formData.chefName}
-              onChange={handleChange}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
@@ -90,8 +85,6 @@ function RecipeForm() {
                 type="number"
                 name="price"
                 placeholder="Price"
-                value={formData.price}
-                onChange={handleChange}
                 className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
@@ -105,8 +98,6 @@ function RecipeForm() {
                 type="text"
                 name="prepTime"
                 placeholder="30 mins"
-                value={formData.prepTime}
-                onChange={handleChange}
                 className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
@@ -124,8 +115,6 @@ function RecipeForm() {
               type="text"
               name="image"
               placeholder="Paste Image URL"
-              value={formData.image}
-              onChange={handleChange}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
@@ -142,8 +131,6 @@ function RecipeForm() {
               rows="4"
               name="description"
               placeholder="Description..."
-              value={formData.description}
-              onChange={handleChange}
               className="w-full border rounded-lg p-3 outline-none resize-none focus:ring-2 focus:ring-orange-500"
             />
 
