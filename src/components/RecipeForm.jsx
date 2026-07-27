@@ -37,15 +37,18 @@ function RecipeForm() {
                 required: {
                   value: true,
                   message: "input is required",
-                }, minLength:{
+                },
+                minLength: {
                   value: 3,
-                  message: "minimum 3 charctors required"
-                }
+                  message: "minimum 3 charctors required",
+                },
               })}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
-              {errors.recipeName && <p>{errors.recipeName.message}</p>}
+          {errors.recipeName && (
+            <p className="text-red-500">{errors.recipeName.message}</p>
+          )}
           {/* Chef Name */}
 
           <div>
@@ -55,10 +58,22 @@ function RecipeForm() {
               type="text"
               name="chefName"
               placeholder="Chef Name"
-              {...register("chefName")}
+              {...register("chefName", {
+                required: {
+                  value: true,
+                  message: "input is required",
+                },
+                minLength: {
+                  value: 3,
+                  message: "minimum 3 charctors required",
+                },
+              })}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
+          {errors.chefName && (
+            <p className="text-red-500">{errors.chefName.message}</p>
+          )}
 
           {/* Price + Time */}
 
@@ -70,10 +85,21 @@ function RecipeForm() {
                 type="number"
                 name="price"
                 placeholder="Price"
-                {...register("price")}
+                {...register("price", {
+                  required: {
+                    value: true,
+                    message: "Put the price",
+                  },
+                  min: {
+                    value: 5,
+                    message: "At list 5$ or more",
+                  },
+                  valueAsNumber: true,
+                })}
                 className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
+            
 
             <div>
               <label className="block mb-2 font-medium">Prep Time</label>
@@ -82,11 +108,32 @@ function RecipeForm() {
                 type="text"
                 name="prepTime"
                 placeholder="30 mins"
-                {...register("prepTime")}
+                {...register("prepTime", {
+                  required: {
+                    value: true,
+                    message: "Put time to make",
+                  },
+                  min: {
+                    value: 10,
+                    message: "At list take 10min or more",
+                  },
+                  valueAsNumber: true,
+                })}
                 className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
+            
           </div>
+          <div>
+            {errors.price && (
+              <p className="text-red-500">{errors.price.message}</p>
+            )}
+
+            {errors.prepTime && (
+              <p className="text-red-500">{errors.prepTime.message}</p>
+            )}
+          </div>
+          
 
           {/* Image */}
 
