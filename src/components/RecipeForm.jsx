@@ -36,7 +36,7 @@ function RecipeForm() {
               {...register("recipeName", {
                 required: {
                   value: true,
-                  massage: "input is required",
+                  message: "input is required",
                 }, minLength:{
                   value: 3,
                   message: "minimum 3 charctors required"
@@ -45,7 +45,7 @@ function RecipeForm() {
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
-              {errors.recipeName && <p>{errors.recipeName.massage}</p>}
+              {errors.recipeName && <p>{errors.recipeName.message}</p>}
           {/* Chef Name */}
 
           <div>
