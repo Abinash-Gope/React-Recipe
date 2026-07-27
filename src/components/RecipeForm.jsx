@@ -37,7 +37,10 @@ function RecipeForm() {
                 required: {
                   value: true,
                   massage: "input is required",
-                },
+                }, minLength:{
+                  value: 3,
+                  message: "minimum 3 charctors required"
+                }
               })}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
