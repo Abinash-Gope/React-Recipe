@@ -1,30 +1,13 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function RecipeForm() {
-  const [formData, setFormData] = useState({
-    recipeName: "",
-    chefName: "",
-    price: "",
-    prepTime: "",
-    image: "",
-    description: "",
-  });
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  const {register, handleSubmit, reset} = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(formData);
-
-    // Next lecture
-    // We will add this recipe into state
-  };
+  const submitHandler = (data) => {
+    console.log(data)
+  }
 
   return (
     <aside className="w-full lg:w-[35%]">
@@ -39,6 +22,7 @@ function RecipeForm() {
         </p>
 
         <form
+          onSubmit={handleSubmit(submitHandler)}
           className="space-y-4"
         >
 
@@ -53,6 +37,7 @@ function RecipeForm() {
               type="text"
               name="recipeName"
               placeholder="Recipe Name"
+              {...register("RecipeName")}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
@@ -68,6 +53,7 @@ function RecipeForm() {
               type="text"
               name="chefName"
               placeholder="Chef Name"
+              {...register("ChefName")}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
@@ -85,6 +71,7 @@ function RecipeForm() {
                 type="number"
                 name="price"
                 placeholder="Price"
+                {...register("Price")}
                 className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
@@ -98,6 +85,7 @@ function RecipeForm() {
                 type="text"
                 name="prepTime"
                 placeholder="30 mins"
+                {...register("PrepTime")}
                 className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
@@ -115,6 +103,7 @@ function RecipeForm() {
               type="text"
               name="image"
               placeholder="Paste Image URL"
+              {...register("imgUrl")}
               className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
@@ -131,6 +120,7 @@ function RecipeForm() {
               rows="4"
               name="description"
               placeholder="Description..."
+              {...register("Description")}
               className="w-full border rounded-lg p-3 outline-none resize-none focus:ring-2 focus:ring-orange-500"
             />
 
