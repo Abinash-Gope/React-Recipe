@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { recipeContext } from "../context/RecipeContext";
 
 function RecipeForm() {
   const {
@@ -13,6 +14,8 @@ function RecipeForm() {
     console.log(data);
     console.log(errors);
   };
+
+  const {fromData, setFromData} = useContext(recipeContext)
 
   return (
     <aside className="w-full lg:w-[35%]">

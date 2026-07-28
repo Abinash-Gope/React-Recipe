@@ -3,7 +3,11 @@ import { createContext } from "react";
 export const recipeContext = createContext();
 
 const RecipeProvider = ({ children }) => {
-  return <recipeContext.Provider>{children}</recipeContext.Provider>;
+    
+const [fromData, setFromData] = useState([]);
+  return (
+    <recipeContext.Provider value={{fromData, setFromData}}>{children}</recipeContext.Provider>
+  );
 };
 
 export default RecipeProvider;
