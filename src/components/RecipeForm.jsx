@@ -10,12 +10,11 @@ function RecipeForm() {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = (data) => {
-    console.log(data);
-    console.log(errors);
-  };
+  const {setFromData} = useContext(recipeContext)
 
-  const {fromData, setFromData} = useContext(recipeContext)
+  const submitHandler = (data) => {
+    setFromData(data)
+  };
 
   return (
     <aside className="w-full lg:w-[35%]">

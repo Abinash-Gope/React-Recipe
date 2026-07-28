@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import RecipeCard from './RecipeCard'
+import { recipeContext } from '../context/RecipeContext'
 
 
 const RecipeList = ({ recipes = defaultRecipes }) => {
+
+  const {formData} = useContext(recipeContext);
   return (
     <section className='w-full'>
       <div className='mb-5 flex items-end justify-between gap-4'>
